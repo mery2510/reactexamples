@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        .image {           /* resmin style özellikleri tanımlandı */
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+<body>
+    <img 
+    class="image"
+    src="https://content.codecademy.com/courses/React/react_photo-puppy.jpeg"
+    title = "doggy" />
+
+    <script>
+        const img = document.querySelector (".image");   // bodyde bulunan resmi aldık. 
+        let sideLength = 300;
+
+        img.addEventListener("click", function (e){       // eventlisener ile fotoğrafa tıklama olayı eklendi. 
+            this.src = "https://content.codecademy.com/courses/React/react_photo-kitty.jpg",  // tıklama olduğunda bu resim diğer resmin yerini alacak 
+            this.title = "kitty"
+
+            if(e.shiftKey === true){    // eğer tıklama shift ile desteklenirse sidelenght 10 piksel artcak
+                sideLength += 50 ;
+            }
+            this.style.height =`${sideLength}px`;  // style içerisindeki heigth özelliği alınır, bunu literal ile dizeye çevridik 
+                                                   // px ile sayıyı piksel olarak tanımladık. 
+            this.style.width = `${sideLength}px`;
+           
+        },
+        img.addEventListener ("contextmenu", function(){
+            sideLength -=10;
+            this.style.height =`${sideLength}px`;
+            this.style.width = `${sideLength}px`;
+        }),
+        img.addEventListener ("mouseover", function(e){
+            if(e.ctrlKey === true){
+                sideLength -= 50;
+            }
+            this.style.height = `${sideLength}px`
+            this.style.width = `${sideLength}px`
+        })
+        )
+
+
+    </script>
+
+
+</body>
+</html>
